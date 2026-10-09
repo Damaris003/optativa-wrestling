@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 { font-family: 'Teko', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+.highlight-blue { color: #1976d2; }
+.btn-red { background-color: #d32f2f; color: white; }
+.btn-red:hover { background-color: #b71c1c; }
+.btn-blue { background-color: #1976d2; color: white; }
+.btn-blue:hover { background-color: #1565c0; }
+.btn-gray { background-color: #555; color: white; }
+.btn-gray:hover { background-color: #777; }
+
+button {
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+/* Login */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+.login-box {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 8px;
+    border-top: 4px solid #1976d2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    text-align: center;
+    width: 350px;
+}
+#panel-staff { border-top-color: #d32f2f; }
+
+.login-box h2 { font-size: 32px; margin-bottom: 5px; color: white; }
+.login-box p { color: #888; margin-bottom: 25px; }
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+.error-msg { display: none; color: #d32f2f; margin-top: 15px; font-weight: bold; }
+
+/* Dashboard Layout */
+.dashboard { display: flex; height: 100vh; }
+.sidebar {
+    width: 250px;
+    background-color: #1a1a1a;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #222;
+}
+.sidebar .logo { font-size: 36px; line-height: 1; margin-bottom: 30px; color: white;}
+.coach-badge {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-left: 3px solid #d32f2f;
+    margin-bottom: 30px;
+}
+.coach-badge p { font-weight: bold; font-size: 14px; }
+.sidebar nav ul { list-style: none; flex-grow: 1; }
+.sidebar nav li {
+    padding: 12px 15px;
+    background-color: #222;
+    border-radius: 4px;
+    color: #1976d2;
+    font-weight: bold;
+    border-left: 4px solid #1976d2;
+}
+.btn-logout { margin-top: auto; background-color: #333; color: white; }
+.btn-logout:hover { background-color: #444; }
+
+/* Contenido */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.main-content header h1 { font-size: 40px; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; color: white; }
+.cards-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+.card {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 3px solid #1976d2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.form-card { flex: 1; min-width: 320px; }
+.table-card { flex: 2; min-width: 500px; border-top-color: #d32f2f; }
+
+.card h3 { font-size: 24px; margin-bottom: 20px; color: white; }
+.input-group { display: flex; gap: 10px; }
+.card input, .card select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Tabla */
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+th { background-color: #222; color: #888; font-family: 'Teko', sans-serif; font-size: 20px; letter-spacing: 1px; }
+tbody tr:hover { background-color: #2a2a2a; }

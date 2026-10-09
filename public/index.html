@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Athletics - Gestión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE LOGIN Y REGISTRO -->
+    <div id="loginScreen" class="login-container">
+        
+        <!-- PANEL POR DEFECTO: USUARIOS NORMALES -->
+        <div class="login-box" id="panel-usuarios">
+            <h2>SPARTAN <span class="highlight-blue">ATHLETICS</span></h2>
+            <p>Acceso de Atletas / Usuarios</p>
+            <form id="loginUserForm">
+                <input type="text" id="loginUserUsuario" placeholder="Usuario" required>
+                <input type="password" id="loginUserPassword" placeholder="Contraseña" required>
+                <button type="submit" class="btn-blue">Entrar como Usuario</button>
+                <button type="button" id="btnRegistrar" class="btn-gray" style="margin-top: 10px;">Registrarme</button>
+            </form>
+            <p id="loginUserError" class="error-msg">Credenciales inválidas</p>
+            <hr style="border: 1px solid #333; margin: 20px 0;">
+            <button type="button" onclick="alternarPanel('staff')" class="btn-red">Acceso Administrativo / Staff</button>
+        </div>
+
+        <!-- PANEL OCULTO: ADMIN / OPERATIVO -->
+        <div class="login-box" id="panel-staff" style="display: none;">
+            <h2>SPARTAN <span class="highlight-blue">STAFF</span></h2>
+            <p>Acceso a Coaches y Operativos</p>
+            <form id="loginStaffForm">
+                <input type="text" id="loginStaffUsuario" placeholder="Usuario" required>
+                <input type="password" id="loginStaffPassword" placeholder="Contraseña" required>
+                <button type="submit" class="btn-red">Entrar al Sistema</button>
+            </form>
+            <p id="loginStaffError" class="error-msg">Credenciales inválidas</p>
+            <hr style="border: 1px solid #333; margin: 20px 0;">
+            <button type="button" onclick="alternarPanel('usuarios')" class="btn-blue">Volver a Usuarios</button>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PRINCIPAL -->
+    <div id="appScreen" class="dashboard" style="display: none;">
+        <aside class="sidebar">
+            <h2 class="logo">SPARTAN<br><span class="highlight-blue">ATHLETICS</span></h2>
+            <div class="coach-badge">
+                <p>USUARIO: <span id="userActual"></span></p>
+                <small id="rolActual"></small>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">Roster de Atletas</li>
+                </ul>
+            </nav>
+            <button id="btnLogout" class="btn-logout">Cerrar Sesión</button>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Gestión de Lucha Olímpica</h1>
+            </header>
+            
+            <div class="cards-grid">
+                <!-- FORMULARIO DE REGISTRO (Se oculta a usuarios normales) -->
+                <div class="card form-card" id="formCardRegistro">
+                    <h3>Registrar Nuevo Atleta</h3>
+                    <form id="atletaForm">
+                        <div class="input-group">
+                            <input type="text" id="nombre" placeholder="Nombre completo" required>
+                            <input type="number" step="0.1" id="peso" placeholder="Peso (kg)" required>
+                        </div>
+                        <input type="text" id="telefono" placeholder="Teléfono de Contacto" required>
+                        
+                        <select id="programaSelect" required>
+                            <option value="">Asignar Programa de Entrenamiento...</option>
+                        </select>
+                        
+                        <input type="date" id="fecha" required>
+                        
+                        <button type="submit" class="btn-blue">Inscribir Atleta</button>
+                    </form>
+                </div>
+
+                <!-- TABLA DE ATLETAS -->
+                <div class="card table-card">
+                    <h3>Atletas Activos</h3>
+                    <div class="table-responsive">
+                        <table id="atletasTable">
+                            <thead>
+                                <tr>
+                                    <th>Atleta</th>
+                                    <th>Peso</th>
+                                    <th>Programa</th>
+                                    <th>Ingreso</th>
+                                    <th id="thAcciones">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
